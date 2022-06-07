@@ -24,6 +24,13 @@
           <span>Kategori</span>
         </a>
       </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/user/comment">
+        <i class="bi bi-menu-button-wide"></i>
+          <span>Komentar</span>
+        </a>
+      </li>
     
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">

@@ -119,6 +119,8 @@
             </div>
           </div> --}}
 
+        <label><h3><a href="/blog/comment">Leave a comment !</a></h3></label>
+
       </div>
       <!-- END CARD -->
 
@@ -151,6 +153,8 @@
   </ul>
 </nav>
 <!-- END PAGINATION -->
+
+
 
 </main>
 <!-- End #main -->

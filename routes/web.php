@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\CommentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +33,10 @@ Route::get('/post/{id}', [BlogController::class, 'singlepost']);
 Route::get('/user/post', [PostController::class, 'tablepost']);
 Route::get('/user/create-post', [PostController::class, 'createpost']);
 
+//COMMENT
+Route::get('/user/comment', [CommentController::class, 'index']);
+Route::get('/blog/comment', [CommentController::class, 'create']);
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -47,6 +52,7 @@ Route::get('/user/kategori', function () {
 Route::get('/user/profile', function () {
     return view('user.profile');
 });
+
 // Route::get('/blog/home', function () {
 //     return view('website.bloghome');
 // });
@@ -58,3 +64,4 @@ Route::get('/user/profile', function () {
 // Route::get('/register', function () {
 //     return view('login.register');
 // });
+
