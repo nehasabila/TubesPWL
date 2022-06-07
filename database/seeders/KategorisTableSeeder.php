@@ -15,8 +15,13 @@ class KategorisTableSeeder extends Seeder
     public function run()
     {
         Kategori::create([
-            'id' => '1',
-            'nama' => 'Sport',
+            'kategori' => 'Kategori 1',
+        ]);
+        Kategori::create([
+            'kategori' => 'Kategori 2',
+        ]);
+        Kategori::create([
+            'kategori' => 'Kategori 3',
         ]);
         //
     }

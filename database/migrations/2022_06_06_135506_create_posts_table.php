@@ -23,17 +23,12 @@ class CreatePostsTable extends Migration
             //->onUpdate('cascade')
             ->cascadeonUpdate();
             $table->unsignedInteger('id_kategori');
-            $table->foreign('id_kategori')->references('id')->on('kategoris')
-            ->cascadeonDelete()
-            //->onDelete('restrict')
-            //->onUpdate('restrict');
-            ->cascadeonUpdate();
-            //->onUpdate('cascade')
-            //->onDelete('cascade');
+            $table->foreign('id_kategori')->references('id')->on('kategoris') ->cascadeonDelete()->cascadeonUpdate();
             $table->string('judul');
             $table->string('slug')->unique();
             $table->text('deskripsi');
             $table->string('foto')->nullable();
+            $table->date('tgl_post');
             $table->timestamps();
         });
     }
