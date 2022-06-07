@@ -53,8 +53,8 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="index.html">Blog</a></li>
-          <li><a href="single-post.html">Single Post</a></li>
+          <li><a href="/">Blog</a></li>
+          {{-- <li><a href="single-post.html">Single Post</a></li> --}}
           <li class="dropdown"><a href="category.html"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="search-result.html">Search Result</a></li>
@@ -83,8 +83,8 @@
 
       <div class="position-relative">
 
-          <button type="button" class="btn btn-dark">Login</button>
-          <button type="button" class="btn btn-outline-dark">Register</button>
+          <a href="/login"><button type="button" class="btn btn-dark">Login</button></a>
+          <a href="/register"><button type="button" class="btn btn-outline-dark">Register</button></a>
 
         <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
         <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
@@ -109,10 +109,11 @@
     </div>
 
   </header>
-
   <!-- End Header -->
 
+  {{-- START CONTENT --}}
   @yield('content')
+
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
 

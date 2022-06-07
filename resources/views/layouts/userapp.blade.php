@@ -44,7 +44,8 @@
 @include('layouts.usernavbar')
 
 <!-- SIDEBAR -->
-<!-- @include('layouts.usersidebar') -->
+@include('layouts.usersidebar')
+
 
 <!-- CONTENT -->
 @yield('content')

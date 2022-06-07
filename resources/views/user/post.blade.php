@@ -6,52 +6,6 @@
 <title>Post</title>
 @endsection
 
-<!-- ======= Sidebar ======= -->
-<aside id="sidebar" class="sidebar">
-
-<ul class="sidebar-nav" id="sidebar-nav">
-
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="/user/dashboard">
-      <i class="bi bi-grid"></i>
-      <span>Dashboard</span>
-    </a>
-  </li><!-- End Dashboard Nav -->
-
-  <li class="nav-item">
-    <a class="nav-link" href="/user/post">
-      <i class="bi bi-file-earmark-text"></i>
-      <span>My Post</span>
-    </a>
-  </li>
-
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="/user/kategori">
-    <i class="bi bi-menu-button-wide"></i>
-      <span>Kategori</span>
-    </a>
-  </li>
-
-  <li class="nav-item">
-    <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-      <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
-    </a>
-    <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-      <li>
-        <a href="components-badges.html">
-          <i class="bi bi-circle"></i><span>Badges</span>
-        </a>
-      </li>
-    
-    </ul>
-  </li><!-- End Components Nav -->
-
-</ul>
-
-</aside>
-
-<!-- End Sidebar-->
-
 <!-- START POST -->
 
 <main id="main" class="main">
@@ -72,29 +26,40 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Datatables</h5>
+              
+              <a href="/user/create-post"><div class="me-3 px-2 mt-3 create-btn btn btn-success align-items-center"><i class="bi bi-plus-lg"></i> Post</div></a>
+
+              {{-- <h5 class="card-title">Datatables</h5> --}}
               <!-- <p>Add lightweight datatables to your project with using the <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple DataTables</a> library. Just add <code>.datatable</code> class name to any table you wish to conver to a datatable</p> -->
 
               <!-- Table with stripped rows -->
-              <table class="table datatable">
+              <table class="table">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Position</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Start Date</th>
+                    <th scope="col">Judul</th>
+                    <th scope="col">Penulis</th>
+                    <th scope="col">Kategori</th>
+                    <th scope="col">Slug</th>
+                    <th scope="col">Tanggal</th>
+                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
+                  @foreach ($post as $posts)
+
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Brandon Jacob</td>
-                    <td>Designer</td>
-                    <td>28</td>
-                    <td>2016-05-25</td>
+                    <th scope="row">{{$posts->id}}</th>
+                    <td>{{$posts->judul}}</td>
+                    <td>{{$posts->name}}</td>
+                    <td>{{$posts->kategori}}</td>
+                    <td>{{$posts->slug}}</td>
+                    <td>{{$posts->tgl_post}}</td>
+                    <td><button type="button" class="btn btn-primary btn-sm "><i class="bi bi-pencil-square"></i> Edit</button><button type="button" class="btn btn-danger btn-sm mx-2"><i class="bi bi-trash-fill"></i> Delete</button></td>
                   </tr>
-                  <tr>
+                                        
+                  @endforeach
+                  {{-- <tr>
                     <th scope="row">2</th>
                     <td>Bridie Kessler</td>
                     <td>Developer</td>
@@ -121,7 +86,7 @@
                     <td>Dynamic Division Officer</td>
                     <td>47</td>
                     <td>2011-04-19</td>
-                  </tr>
+                  </tr> --}}
                 </tbody>
               </table>
               <!-- End Table with stripped rows -->
