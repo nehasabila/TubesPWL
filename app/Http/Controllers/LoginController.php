@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 class LoginController extends Controller
 {
     public function index(){
@@ -21,7 +23,7 @@ class LoginController extends Controller
             if (Auth::check() && Auth::user()->status == 'pembaca') {
                 return redirect()->intended('/');
             }
-            elseif (Auth::check() && Auth::user()->role == 'admin' || 'penulis'){
+            elseif (Auth::check() && Auth::user()->status == 'admin' || 'penulis'){
                 return redirect()->intended('/user/dashboard');
             } else {
                 return redirect('/logouts');

@@ -15,14 +15,24 @@
     <div class="container">
         <div class="row justify-content-center" >
         <div class="col-md-7 col-lg-5">
-            
+            @if ($message = Session::get('success'))
+            <div class="alert alert-success alert-block">	
+                <strong>{{ $message }}</strong>
+            </div>
+            @endif
+            @if(session()->has('loginError'))
+            <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+              {{ session('loginError') }}
+            </div>
+            @endif
               <div class="card mx-3 my-5 ">
                   <div class="card-body">
                     <div class="card-title">
-                        <form action="/login" method="POST" class="my-login-validation" novalidate="">
+                        <form action="/login" method="post" class="my-login-validation" novalidate="">
+                            @csrf
                             <div class="form-group">
                                 <h3 class="text-center">Login</h3>
-                                <label class="mt-5" for="username">Email</label>
+                                <label class="mt-5" for="email">Email</label>
                                 <input id="email" type="email" class="form-control" name="email" required autofocus>
                                 <div class="invalid-feedback">
                                    Email yang dimasukkan salah
@@ -57,7 +67,7 @@
                             </div>
                         </form>
                         <hr style="border-top: 1px solid grey;">
-                        <p class="text-center">Belum punya akun? <a data-toggle="tab" href="#signup">Register</a></p>
+                        <p class="text-center">Belum punya akun? <a data-toggle="tab" href="/register">Register</a></p>
                     </div>
                   </div>
                 </div>

@@ -20,7 +20,7 @@
               <div class="card mx-3 my-5" >
                   <div class="card-body">
                     <div class="card-title">
-                        <form method="post" class="my-login-validation" novalidate="">
+                        <form action="/register" method="post" class="my-login-validation">
                             @csrf
                             <div class="form-group">
                                 <h3 class="text-center">Register</h3>
@@ -61,7 +61,7 @@
                               <select class="form-select form-control my-3" aria-label="Default select example" id="status" name="status">
                                 <option value="penulis">Penulis</option>
                                 <option value="pembaca">Pembaca</option>
-                                <option value="admin" hidden>Admin</option>
+
                               </select>
                               {{-- <input type="radio" name="status" id="status" value="pembaca" class="form-control">
                               <label for="pembaca">Pembaca</label>
