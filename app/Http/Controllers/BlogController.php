@@ -16,11 +16,21 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
-        $post = Post::join('kategoris','posts.id_kategori','=','kategoris.id')->join('users','posts.id_user','=','users.id')->select('posts.id','posts.judul','posts.deskripsi','posts.tgl_post','posts.foto','kategoris.kategori','users.name')->get();
 
-        return view('website.bloghome', [
-            'post' => $post
+
+        //
+        $post = Post::join('kategoris','posts.id_kategori','=','kategoris.id')->join('users','posts.id_user','=','users.id')->select('posts.id','posts.judul','posts.deskripsi','posts.tgl_post','posts.foto','kategoris.kategori','users.name');
+        //query search early
+        //dd(request('search'));
+        //$post = post::latest();
+
+        // if(request('search')){
+        //     $post->where('judul','like','%'.request('search').'%')
+        //          ->OrWhere('deskripsi','like','%'.request('search').'%');
+        // }
+        //end early
+        return view('website.bloghome', [                   //untuk pagination, jadi ini diizinkan 2 data yg bisa tampil perhalaman
+            'post' => $post->filter(request(['search']))->paginate(2)//sebelum->get()
         ]);
     }
 
