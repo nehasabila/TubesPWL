@@ -17,7 +17,7 @@ class BlogController extends Controller
     public function index()
     {
         //
-        $post = Post::join('kategoris','posts.id_kategori','=','kategoris.id')->join('users','posts.id_user','=','users.id')->select('posts.id','posts.judul','posts.deskripsi','posts.tgl_post','kategoris.kategori','users.name')->get();
+        $post = Post::join('kategoris','posts.id_kategori','=','kategoris.id')->join('users','posts.id_user','=','users.id')->select('posts.id','posts.judul','posts.deskripsi','posts.tgl_post','posts.foto','kategoris.kategori','users.name')->get();
 
         return view('website.bloghome', [
             'post' => $post
@@ -26,7 +26,7 @@ class BlogController extends Controller
 
     public function singlepost($id)
     {
-        $post = Post::join('kategoris','posts.id_kategori','=','kategoris.id')->join('users','posts.id_user','=','users.id')->select('posts.id','posts.judul','posts.deskripsi','posts.tgl_post','kategoris.kategori','users.name')->where('posts.id', $id)->get();
+        $post = Post::join('kategoris','posts.id_kategori','=','kategoris.id')->join('users','posts.id_user','=','users.id')->select('posts.id','posts.judul','posts.deskripsi','posts.tgl_post','posts.foto','kategoris.kategori','users.name')->where('posts.id', $id)->get();
 
         return view('website.singlepost', [
             'post' => $post

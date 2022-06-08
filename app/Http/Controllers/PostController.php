@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Kategori;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -16,13 +18,8 @@ class PostController extends Controller
      //read postingan di halaman blog
     public function index()
     {
-
-        //
-    }
-    
-    public function tablepost()
-    {
-        $post = Post::join('kategoris','posts.id_kategori','=','kategoris.id')->join('users','posts.id_user','=','users.id')->select('posts.id','posts.judul','posts.slug','posts.deskripsi','posts.tgl_post','kategoris.kategori','users.name')->get();
+        $id = auth()->user()->id;
+        $post = Post::join('kategoris','posts.id_kategori','=','kategoris.id')->join('users','posts.id_user','=','users.id')->select('users.id','posts.id','posts.id_user','posts.judul','posts.slug','posts.deskripsi','posts.tgl_post','kategoris.kategori','users.name')->where('posts.id_user', $id)->get();
 
         return view('user.post', [
             'post' => $post
@@ -37,8 +34,9 @@ class PostController extends Controller
      */
     public function createpost()
     {
+        $post = Kategori::all();
         return view('user.createpost', [
-
+            'post'=>$post
         ]);
         //
     }
@@ -51,7 +49,53 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+
+            'id_user' => 'required',
+            'id_kategori' => 'required',
+            'judul'=>'required',
+            'slug'=>'required',
+            'deskripsi'=>'required',
+            'foto' => 'image|nullable|mimes:jpeg,png,jpg,gif,svg|max:20487',
+            'tgl_post' => 'required',
+        
+        ]);
+
+         //mengambil data file yang diupload
+         $file           = $request->file('foto');
+         //mengambil nama file
+         $nama_file      = $file->getClientOriginalName();
+ 
+         //memindahkan file ke folder tujuan
+         $file->move('posts_image',$file->getClientOriginalName());
+
+        // if($request->hasFile('foto')){
+        //     $filenameWithExt = $request->file('foto')->getClientOriginalName();
+        //     $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        //     $extension = $request->file('foto')->getClientOriginalExtension();
+        //     $filenameSimpan = $filename.'_'.time().'.'.$extension;
+        //     $path = $request->file('foto')->storeAs('public/posts_image', $filenameSimpan);
+
+        // }else{
+        //     $filenameSimpan = 'noimage.jpg';
+        //     // tidak ada file yang diupload
+        // }
+
+
+        Post::create([
+            'id_user'=>$request->id_user,
+            'id_kategori'=>$request->id_kategori,
+            'judul'=>$request->judul,
+            'slug'=>$request->slug,
+            'deskripsi'=>$request->deskripsi,
+            'foto'=>$nama_file, 
+            'tgl_post'=>$request->tgl_post,
+        
+        ]);
         //
+        //dd($request->all());
+        return redirect('/user/post')->with('success', 'Data Berhasil ditambahkan');
+
     }
 
     /**
