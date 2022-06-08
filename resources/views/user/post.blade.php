@@ -9,6 +9,11 @@
 <!-- START POST -->
 
 <main id="main" class="main">
+  @if ($message = Session::get('success'))
+  <div class="alert alert-success alert-block">	
+      <strong>{{ $message }}</strong>
+  </div>
+  @endif
 
     <div class="pagetitle">
       <h1>Post</h1>

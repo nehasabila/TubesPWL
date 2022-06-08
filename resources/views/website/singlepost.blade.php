@@ -22,12 +22,12 @@
               <h1 class="mb-2">{{$posts->judul}}</h1>
               <span class="mb-5">{{$posts->name}}</span>
 
-              <figure class="my-4">
-                <img src="/assets/img/post-landscape-3.jpg" alt="" class="img-fluid">
-                <figcaption>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, odit? </figcaption>
+              <figure class="my-4 mx-5">
+                <img src="/posts_image/{{$posts->foto}}" alt="" class="img-fluid" width="700px">
+                {{-- <figcaption>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, odit? </figcaption> --}}
               </figure>
 
-              <p>{{$posts->deskripsi}}</p>
+              <p>{!!$posts->deskripsi!!}</p>
 
             </div><!-- End Single Post Content -->
                
@@ -188,10 +188,11 @@
                     <h2 class="mb-2"><a href="#">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
                     <span class="author mb-3 d-block">Jenny Wilson</span>
                   </div>
-                </div> <!-- End Popular -->
+                </div>
+                 <!-- End Popular -->
 
                 <!-- Trending -->
-                <div class="tab-pane fade" id="pills-trending" role="tabpanel" aria-labelledby="pills-trending-tab">
+                {{-- <div class="tab-pane fade" id="pills-trending" role="tabpanel" aria-labelledby="pills-trending-tab">
                   <div class="post-entry-1 border-bottom">
                     <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
                     <h2 class="mb-2"><a href="#">17 Pictures of Medium Length Hair in Layers That Will Inspire Your New Haircut</a></h2>
@@ -226,7 +227,8 @@
                     <h2 class="mb-2"><a href="#">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
                     <span class="author mb-3 d-block">Jenny Wilson</span>
                   </div>
-                </div> <!-- End Trending -->
+                </div>  --}}
+                <!-- End Trending -->
 
                 <!-- Latest -->
                 <div class="tab-pane fade" id="pills-latest" role="tabpanel" aria-labelledby="pills-latest-tab">

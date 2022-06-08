@@ -30,8 +30,9 @@ Route::get('/', [BlogController::class, 'index']);
 Route::get('/post/{id}', [BlogController::class, 'singlepost']);
 
 //POST
-Route::get('/user/post', [PostController::class, 'tablepost']);
+Route::get('/user/post', [PostController::class, 'index']);
 Route::get('/user/create-post', [PostController::class, 'createpost']);
+Route::post('/user/create-post', [PostController::class, 'store']);
 
 //COMMENT
 Route::get('/user/comment', [CommentController::class, 'index']);

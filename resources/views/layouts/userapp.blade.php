@@ -81,6 +81,23 @@
   <!-- Template Main JS File -->
   <script src="/user/assets/js/main.js"></script>
 
+  {{-- <script src="/user/assets/vendor/tinymce/">
+  
+  tinymce.init({
+    forced_root_block : "",
+    selector:'textarea'
+  });
+  
+  </script> --}}
+  <script>
+    tinymce.init({
+      forced_root_block : false,
+      //forced_p_newlines : "",
+      selector:'textarea',
+    });
+    </script>
+  
+
 </body>
 
 </html>
