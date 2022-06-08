@@ -8,6 +8,41 @@
 
 <main id="main" class="main">
 
+  @error('judul')
+   <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+     {{$message}}
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+   </div>  
+   @enderror
+
+   @error('slug')
+   <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+     {{$message}}
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+   </div>  
+   @enderror
+
+   @error('kategori')
+   <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+     {{$message}}
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+   </div>  
+   @enderror
+
+   @error('foto')
+   <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+     {{$message}}
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+   </div>  
+   @enderror
+
+   @error('tgl_post')
+   <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+     {{$message}}
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+   </div>  
+   @enderror
+
 <!-- START CREATE POST -->
 <div class="card">
     <div class="card-body">
