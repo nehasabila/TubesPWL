@@ -18,6 +18,18 @@ class Post extends Model
         'foto'
     ];
 
+    //fungsi untuk earch early
+    public function scopeFilter($query, array $filters){
+        if(isset($filters['search']) ? $filters['search'] : false ){//jika benar lakukan dibawah, jika salah skip langkah ini
+            return $query->where('judul','like','%'.$filters['search'].'%')
+                 ->OrWhere('deskripsi','like','%'.$filters['search'].'%');
+        }
+
+
+
+    }
+    //end search
+
     public function user(){
         return $this->belongsTo(User::class);
     }
