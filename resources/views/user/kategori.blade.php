@@ -56,8 +56,8 @@
                     <th scope="row">{{$ktgr->id}}</th>
                     <td>{{$ktgr->kategori}}</td>
                     @if(auth()->user()->status === 'admin')
-                    <td><a href="#" class="btn btn-primary btn-sm "><i class="bi bi-pencil-square"></i> Edit</a>
-                      <a href="#" class="btn btn-danger btn-sm mx-2"><i class="bi bi-trash-fill"></i> Delete</a>
+                    <td><a href="/user/update-kategori/{{ $ktgr->id }}" class="btn btn-primary btn-sm "><i class="bi bi-pencil-square"></i> Edit</a>
+                      <a href="/user/destroy-kategori/{{ $ktgr->id }}" class="btn btn-danger btn-sm mx-2" onclick="return confirm('Hapus Data?')"><i class="bi bi-trash-fill"></i> Delete</a>
                     </td>
                     @endif
                   </tr>

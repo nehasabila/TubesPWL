@@ -21,6 +21,16 @@ class KategoriController extends Controller
         //
     }
 
+    public function updatekategori(Kategori $kategoriData)
+    {
+        $kategori = Kategori::all();
+        return view('user.updatekategori', [
+            'kategori'=>$kategori,
+            'kategoriData' => $kategoriData
+        ]);
+        //
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -82,7 +92,15 @@ class KategoriController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'kategori' => 'required',
+        ]);
+        Kategori::where('id', $id)->update([
+            'kategori'=>$request->kategori,
+        ]);
         //
+
+        return redirect('/user/kategori')->with('success', 'Data Berhasil diubah');
     }
 
     /**
@@ -93,6 +111,7 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Kategori::where('id', $id)->delete();
+        return redirect('/user/kategori')->with('success', 'Data Berhasil dihapus');
     }
 }

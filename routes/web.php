@@ -52,6 +52,9 @@ Route::get('/user/comment/{id}', [CommentController::class, 'destroy'])->name('b
 Route::get('/user/kategori', [KategoriController::class, 'index']);
 Route::get('/user/create-kategori', [KategoriController::class, 'create']);
 Route::post('/user/create-kategori', [KategoriController::class, 'store']);
+Route::get('/user/update-kategori/{kategoriData}', [KategoriController::class, 'updatekategori']);
+Route::put('/user/update-kategori/{id}', [KategoriController::class, 'update']);
+Route::get('/user/destroy-kategori/{id}', [KategoriController::class, 'destroy']);
 Route::get('/user/dashboard', function () {
     return view('user.dashboard');
 });
