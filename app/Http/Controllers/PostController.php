@@ -28,6 +28,17 @@ class PostController extends Controller
         ]);
         //
     }
+    public function allpost()
+    {
+        
+        $post = Post::join('kategoris','posts.id_kategori','=','kategoris.id')->join('users','posts.id_user','=','users.id')->select('users.id','posts.id','posts.id_user','posts.judul','posts.slug','posts.deskripsi','posts.tgl_post','kategoris.kategori','users.name')->get();
+
+        return view('user.post', [
+            'post' => $post
+        ]);
+        //
+    }
+
 
     /**
      * Show the form for creating a new resource.

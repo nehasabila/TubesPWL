@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -25,12 +26,16 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/register', [RegisterController::class, 'index'])->name('index');
 Route::post('/register', [RegisterController::class, 'store']);
 
+// LOGOUT
+Route::get('/logout', [LoginController::class, 'logout']);
+
 //BLOG
 Route::get('/', [BlogController::class, 'index']);
 Route::get('/post/{id}', [BlogController::class, 'singlepost']);
 
 //POST
 Route::get('/user/post', [PostController::class, 'index']);
+Route::get('/user/allpost', [PostController::class, 'allpost']);
 Route::get('/user/create-post', [PostController::class, 'createpost']);
 Route::get('/user/update-post/{postData}', [PostController::class, 'updatepost']);
 Route::post('/user/create-post', [PostController::class, 'store']);
@@ -43,31 +48,16 @@ Route::get('/comment', [CommentController::class, 'showcomment']);
 Route::post('/comment', [CommentController::class, 'create']);
 Route::get('/user/comment/{id}', [CommentController::class, 'destroy'])->name('blogdestroy');
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+//KATEGORI
+Route::get('/user/kategori', [KategoriController::class, 'index']);
+Route::get('/user/create-kategori', [KategoriController::class, 'create']);
+Route::post('/user/create-kategori', [KategoriController::class, 'store']);
 Route::get('/user/dashboard', function () {
     return view('user.dashboard');
 });
-// Route::get('/user/post', function () {
-//     return view('user.post');
-// });
-Route::get('/user/kategori', function () {
-    return view('user.kategori');
-});
+ 
 Route::get('/user/profile', function () {
     return view('user.profile');
 });
 
-// Route::get('/blog/home', function () {
-//     return view('website.bloghome');
-// });
-
-    
-// Route::get('/login', function () {
-//     return view('login.login');
-// });
-// Route::get('/register', function () {
-//     return view('login.register');
-// });
 
