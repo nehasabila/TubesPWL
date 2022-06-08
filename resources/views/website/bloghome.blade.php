@@ -6,6 +6,7 @@
 <title>Blog</title>
 @endsection
 
+@if($post)
 <main id="main" class="mx-0">
 
 <!-- ======= Hero Slider Section ======= -->
@@ -79,9 +80,10 @@
 
       <div class="col-lg-12">
 
+        {{-- kolom pencarian halaman awal --}}
       <div class="row search-bar">
-          <form class="search-form d-flex justify-content-center" method="POST" action="#">
-            <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+          <form class="search-form d-flex justify-content-center"  action="/">
+            <input type="text" name="search" placeholder="Search..." title="Enter search keyword" value="{{request('search')}}" >
             <button type="submit" title="Search" class="mx-2"><i class="bi bi-search"></i></button>
           </form>
       </div>
@@ -135,7 +137,7 @@
 </section> 
 <!-- End Post Grid Section -->
 
-<!-- START PAGINATION -->
+{{-- <!-- START PAGINATION -->
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
     <li class="page-item">
@@ -153,11 +155,18 @@
     </li>
   </ul>
 </nav>
-<!-- END PAGINATION -->
+<!-- END PAGINATION --> --}}
+
 
 
 
 </main>
 <!-- End #main -->
+
+@else
+<p class = "text-center fs-4"><h1>no post found...</h1></p>
+@endif
+{{-- untuk link halamannya --}}
+{{ $post->links() }}
 
 @endsection
