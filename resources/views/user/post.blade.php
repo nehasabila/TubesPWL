@@ -95,6 +95,7 @@
                     <td>2011-04-19</td>
                   </tr> --}}
                 </tbody>
+               
               </table>
               <!-- End Table with stripped rows -->
 
@@ -108,5 +109,5 @@
   </main>
 
 <!-- END POST -->
-  
+{{-- {{$post->links()}}  --}}
 @endsection
