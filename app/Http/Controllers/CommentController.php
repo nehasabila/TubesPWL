@@ -93,6 +93,7 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Komentar::findOrFail($id)->delete();
+        return redirect("/user/comment");
     }
 }

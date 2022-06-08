@@ -3,7 +3,7 @@
 @section('content')
 
 @section('title')
-<title>Kategori</title>
+<title>Comment</title>
 @endsection
 
 <!-- START KATEGORI -->
@@ -45,7 +45,7 @@
                     <th scope="row">{{$komentar->id}}</th>
                     <td>{{$komentar->isi_komentar}}</td>
                     <td>{{$komentar->created_at}}</td>
-                    <td><button type="button" class="btn btn-danger btn-sm mx-2"><i class="bi bi-trash-fill"></i> Delete</button></td>
+                    <td><button type="button" class="btn btn-danger btn-sm mx-2"><i class="bi bi-trash-fill"></i><a href="{{route('blogdestroy',$komentar->id)}}" class="link-light"> Delete</a></button></td>
                     </tr>
                                         
                     @endforeach
