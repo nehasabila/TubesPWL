@@ -9,6 +9,13 @@ class Komentar extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        
+        'id_post',
+        'id_user',
+        'isi_komentar',
+    ];
+
     public function user(){
         return $this->belongsTo(User::class);
     }

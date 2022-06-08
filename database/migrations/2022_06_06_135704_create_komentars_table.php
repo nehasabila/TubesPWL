@@ -16,9 +16,9 @@ class CreateKomentarsTable extends Migration
         Schema::create('komentars', function (Blueprint $table) {
             //$table->id();
             $table->increments('id');
-            $table->unsignedBigInteger('id_post');
+            $table->unsignedBigInteger('id_post')->nullable();
             $table->foreign('id_post')->references('id')->on('posts')->onDelete('restrict');
-            $table->unsignedBigInteger('id_user');
+            $table->unsignedBigInteger('id_user')->nullable();
             $table->foreign('id_user')->references('id')->on('users')->onDelete('restrict');
             $table->text('isi_komentar');
             $table->timestamps();

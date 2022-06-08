@@ -35,7 +35,8 @@ Route::get('/user/create-post', [PostController::class, 'createpost']);
 
 //COMMENT
 Route::get('/user/comment', [CommentController::class, 'index']);
-Route::get('/blog/comment', [CommentController::class, 'create']);
+Route::get('/comment', [CommentController::class, 'showcomment']);
+Route::post('/comment', [CommentController::class, 'create']);
 
 // Route::get('/', function () {
 //     return view('welcome');

@@ -24,9 +24,20 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function showcomment()
     {
-        return view("website.blogcomment");
+        $komentars = Komentar::all();
+        return view("website.blogcomment",compact('komentars'));
+    }
+
+    public function create(Request $request)
+    {   
+        Komentar::create([
+            'id_post' => $request->id_post,
+            'id_user' => $request->id_user,
+            'isi_komentar' => $request->isi_komentar,
+        ]);
+        return redirect('/comment');
     }
 
     /**
