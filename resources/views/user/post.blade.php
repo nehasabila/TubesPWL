@@ -60,7 +60,9 @@
                     <td>{{$posts->kategori}}</td>
                     <td>{{$posts->slug}}</td>
                     <td>{{$posts->tgl_post}}</td>
-                    <td><button type="button" class="btn btn-primary btn-sm "><i class="bi bi-pencil-square"></i> Edit</button><button type="button" class="btn btn-danger btn-sm mx-2"><i class="bi bi-trash-fill"></i> Delete</button></td>
+                    <td><a href="/user/update-post/{{ $posts->id }}" class="btn btn-primary btn-sm "><i class="bi bi-pencil-square"></i> Edit</a>
+                      <a href="/user/destroy-post/{{ $posts->id }}" class="btn btn-danger btn-sm mx-2" onclick="return confirm('Hapus Data?')"><i class="bi bi-trash-fill"></i> Delete</a>
+                    </td>
                   </tr>
                                         
                   @endforeach

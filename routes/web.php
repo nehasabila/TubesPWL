@@ -32,7 +32,10 @@ Route::get('/post/{id}', [BlogController::class, 'singlepost']);
 //POST
 Route::get('/user/post', [PostController::class, 'index']);
 Route::get('/user/create-post', [PostController::class, 'createpost']);
+Route::get('/user/update-post/{postData}', [PostController::class, 'updatepost']);
 Route::post('/user/create-post', [PostController::class, 'store']);
+Route::put('/user/update-post/{id}', [PostController::class, 'update']);
+Route::get('/user/destroy-post/{id}', [PostController::class, 'destroy']);
 
 //COMMENT
 Route::get('/user/comment', [CommentController::class, 'index']);
