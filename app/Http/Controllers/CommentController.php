@@ -13,9 +13,10 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    protected $limit=3;
     public function index()
     {
-        $komentars = Komentar::all();
+        $komentars = Komentar::paginate($this->limit);
         return view("user.comment",compact('komentars'));
     }
 

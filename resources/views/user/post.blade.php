@@ -39,7 +39,17 @@
               <!-- <p>Add lightweight datatables to your project with using the <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple DataTables</a> library. Just add <code>.datatable</code> class name to any table you wish to conver to a datatable</p> -->
 
               <!-- Table with stripped rows -->
+            
+                  <div class="col-lg-12">
+                    <div class="row search-bar">
+                      <form class="search-form d-flex justify-content-center"  action="/user/post">
+                        <input type="text" name="search" placeholder="Search...." title="Enter search keyword" value="{{request('search')}}" >
+                        <button type="submit" title="Search" class="mx-2"><i class="bi bi-search"></i></button>
+                      </form>
+                    </div>
+
               <table class="table">
+                
                 <thead>
                   <tr>
                     {{-- <th scope="col">#</th> --}}
@@ -67,12 +77,12 @@
                   </tr>
                                         
                   @endforeach
-                
+
                 </tbody>
-               
+            
               </table>
               <!-- End Table with stripped rows -->
-
+              {{$post->links()}}    
             </div>
           </div>
 
@@ -83,5 +93,5 @@
   </main>
 
 <!-- END POST -->
-{{-- {{$post->links()}}  --}}
+
 @endsection

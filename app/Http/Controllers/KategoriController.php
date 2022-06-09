@@ -16,7 +16,7 @@ class KategoriController extends Controller
     {
         $kategori = Kategori::all();
         return view('user.kategori', [
-            'kategori'=>$kategori
+            'kategori'=>$kategori//->paginate(2)//paginationnya
         ]);
         //
     }

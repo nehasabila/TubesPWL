@@ -39,6 +39,7 @@
                   </tr>
                 </thead>
                 <tbody>
+
                     @foreach ($komentars as $komentar)
 
                     <tr>
@@ -49,7 +50,9 @@
                     </tr>
                                         
                     @endforeach
+
                 </tbody>
+                {{$komentars->links()}}    
               </table>
               <!-- End Table with stripped rows -->
 

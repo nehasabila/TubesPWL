@@ -66,6 +66,7 @@
                   @endforeach
                 </tbody>
               </table>
+              {{-- {{$post->links()}}                 --}}
               <!-- End Table with stripped rows -->
 
             </div>
