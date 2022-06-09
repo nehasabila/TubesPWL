@@ -25,9 +25,11 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function showcomment()
+    public function showcomment($id)
+    
     {
-        $komentars = Komentar::all();
+        $komentars = Komentar::join('users','komentars.id_user','=','users.id')->select('komentars.id_post','komentars.id_user','komentars.isi_komentar','users.name')->where('komentars.id_post', $id)->get();
+      
         return view("website.blogcomment",compact('komentars'));
     }
 
@@ -38,7 +40,7 @@ class CommentController extends Controller
             'id_user' => $request->id_user,
             'isi_komentar' => $request->isi_komentar,
         ]);
-        return redirect('/comment');
+        return back();
     }
 
     /**

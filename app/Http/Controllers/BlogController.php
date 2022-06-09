@@ -17,9 +17,8 @@ class BlogController extends Controller
     public function index()
     {
 
-
         //
-        $post = Post::join('kategoris','posts.id_kategori','=','kategoris.id')->join('users','posts.id_user','=','users.id')->select('posts.id','posts.judul','posts.deskripsi','posts.tgl_post','posts.foto','kategoris.kategori','users.name');
+        $post = Post::join('kategoris','posts.id_kategori','=','kategoris.id')->join('users','posts.id_user','=','users.id')->select('posts.id','posts.judul','posts.deskripsi','posts.tgl_post','posts.foto','kategoris.kategori','users.name','users.status');
         //query search early
         //dd(request('search'));
         //$post = post::latest();

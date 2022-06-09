@@ -82,7 +82,9 @@
             
               </table>
               <!-- End Table with stripped rows -->
-              {{$post->links()}}    
+              @if(auth()->user()->status === 'penulis')
+              {{$post->links()}}
+              @endif    
             </div>
           </div>
 

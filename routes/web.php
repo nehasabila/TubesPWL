@@ -44,8 +44,8 @@ Route::get('/user/destroy-post/{id}', [PostController::class, 'destroy']);
 
 //COMMENT
 Route::get('/user/comment', [CommentController::class, 'index']);
-Route::get('/comment', [CommentController::class, 'showcomment']);
-Route::post('/comment', [CommentController::class, 'create']);
+Route::get('/comment/{id}', [CommentController::class, 'showcomment']);
+Route::post('/comment/create-comment', [CommentController::class, 'create']);
 Route::get('/user/comment/{id}', [CommentController::class, 'destroy'])->name('blogdestroy');
 
 //KATEGORI

@@ -11,7 +11,7 @@
     <section class="single-post-content">
       <div class="container">
         <div class="row">
-          <div class="col-md-9 post-content" data-aos="fade-up">
+          <div class="col-md-12 post-content" data-aos="fade-up">
 
             <!-- ======= Single Post Content ======= -->
             @foreach ($post as $posts)
@@ -22,7 +22,7 @@
               <h1 class="mb-2">{{$posts->judul}}</h1>
               <span class="mb-5">{{$posts->name}}</span>
 
-              <figure class="my-4 mx-5">
+              <figure class="my-4 mx-4">
                 <img src="/posts_image/{{$posts->foto}}" alt="" class="img-fluid" width="700px">
                 {{-- <figcaption>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, odit? </figcaption> --}}
               </figure>
@@ -32,14 +32,17 @@
             </div><!-- End Single Post Content -->
                
             @endforeach
-           
 
-            <label><h3><a href="/comment">Leave a comment !</a></h3></label>
+            @if(auth()->user())
+            @foreach ($post as $posts)
+            <label><h3><a href="/comment/{{$posts->id}}">Leave a comment !</a></h3></label>
+            @endforeach
+            @endif
 
           </div>
-          <div class="col-md-3">
+          {{-- <div class="col-md-3"> --}}
             <!-- ======= Sidebar ======= -->
-            <div class="aside-block">
+            {{-- <div class="aside-block">
 
               <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
@@ -53,10 +56,10 @@
                 </li>
               </ul>
 
-              <div class="tab-content" id="pills-tabContent">
+              <div class="tab-content" id="pills-tabContent"> --}}
 
                 <!-- Popular -->
-                <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
+                {{-- <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
                   <div class="post-entry-1 border-bottom">
                     <div class="post-meta"><span class="date">Sport</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
                     <h2 class="mb-2"><a href="#">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
@@ -92,7 +95,7 @@
                     <h2 class="mb-2"><a href="#">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
                     <span class="author mb-3 d-block">Jenny Wilson</span>
                   </div>
-                </div>
+                </div> --}}
                  <!-- End Popular -->
 
                 <!-- Trending -->
@@ -135,7 +138,7 @@
                 <!-- End Trending -->
 
                 <!-- Latest -->
-                <div class="tab-pane fade" id="pills-latest" role="tabpanel" aria-labelledby="pills-latest-tab">
+                {{-- <div class="tab-pane fade" id="pills-latest" role="tabpanel" aria-labelledby="pills-latest-tab">
                   <div class="post-entry-1 border-bottom">
                     <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
                     <h2 class="mb-2"><a href="#">Life Insurance And Pregnancy: A Working Mom’s Guide</a></h2>
@@ -172,11 +175,11 @@
                     <span class="author mb-3 d-block">Jenny Wilson</span>
                   </div>
 
-                </div> 
+                </div>  --}}
                 <!-- End Latest -->
-
+{{-- 
               </div>
-            </div>
+            </div> --}}
 
             {{-- <div class="aside-block">
               <h3 class="aside-title">Video</h3>
@@ -189,7 +192,7 @@
             </div> --}}
             <!-- End Video -->
 
-            <div class="aside-block">
+            {{-- <div class="aside-block">
               <h3 class="aside-title">Categories</h3>
               <ul class="aside-links list-unstyled">
                 <li><a href="category.html"><i class="bi bi-chevron-right"></i> Business</a></li>
@@ -201,7 +204,8 @@
                 <li><a href="category.html"><i class="bi bi-chevron-right"></i> Startups</a></li>
                 <li><a href="category.html"><i class="bi bi-chevron-right"></i> Travel</a></li>
               </ul>
-            </div><!-- End Categories -->
+            </div> --}}
+            <!-- End Categories -->
 
             {{-- <div class="aside-block">
               <h3 class="aside-title">Tags</h3>

@@ -22,12 +22,12 @@
               <div class="comment d-flex mb-4">
                 <div class="flex-shrink-0">
                   <div class="avatar avatar-sm rounded-circle">
-                    <img class="avatar-img text-center" src="/assets/img/person-5.jpg" alt="" class="img-fluid">
+                    <img class="avatar-img text-center" src="https://cdn.pixabay.com/photo/2017/07/18/23/23/user-2517433__340.png" alt="" class="img-fluid" width="35px">
                   </div>
                 </div>
                 <div class="flex-grow-1 ms-2 ms-sm-3">
                   <div class="comment-meta d-flex align-items-center">
-                    <h6 class="me-2">Anonymous</h6>
+                    <h6 class="me-2">{{$komentar->name}}</h6>
                     <span class="text-muted">{{$komentar->created_at}}</span>
                   </div>
                   <div class="comment-body">
@@ -42,7 +42,7 @@
             <!-- End Comments -->
 
             <!-- ======= Comments Form ======= -->
-            <form action="/comment" method="POST">
+            <form action="/comment/create-comment" method="POST">
               @csrf
             <div class="row justify-content-center mt-5">
 
@@ -52,8 +52,15 @@
                   
                   <div class="col-12 mb-3">
                     <label for="isi_komentar">Message</label>
-
+                    
+                    <input type="hidden" class="form-control" id="id_user" name="id_user" value="{{auth()->user()->id}}">
+                    
+                    @foreach ($komentars as $komentar) 
+                    <input type="hidden" class="form-control" id="id_post" name="id_post" value={{$komentar->id_post}}>
+                     @endforeach
+                   
                     <textarea class="form-control" id="isi_komentar" name="isi_komentar" placeholder="Enter your name" cols="30" rows="10"></textarea>
+                   
                   </div>
                   <div class="col-12">
                   <button type="submit" class="btn btn-primary">Submit</button>
@@ -66,7 +73,7 @@
            
 
           </div>
-          <div class="col-md-3">
+          {{-- <div class="col-md-3">
             <!-- ======= Sidebar ======= -->
             <div class="aside-block">
 
@@ -121,10 +128,11 @@
                     <h2 class="mb-2"><a href="#">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
                     <span class="author mb-3 d-block">Jenny Wilson</span>
                   </div>
-                </div> <!-- End Popular -->
+                </div> --}}
+                 <!-- End Popular -->
 
                 <!-- Trending -->
-                <div class="tab-pane fade" id="pills-trending" role="tabpanel" aria-labelledby="pills-trending-tab">
+                {{-- <div class="tab-pane fade" id="pills-trending" role="tabpanel" aria-labelledby="pills-trending-tab">
                   <div class="post-entry-1 border-bottom">
                     <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
                     <h2 class="mb-2"><a href="#">17 Pictures of Medium Length Hair in Layers That Will Inspire Your New Haircut</a></h2>
@@ -199,11 +207,11 @@
                     <span class="author mb-3 d-block">Jenny Wilson</span>
                   </div>
 
-                </div> 
+                </div>  --}}
                 <!-- End Latest -->
-
+{{-- 
               </div>
-            </div>
+            </div> --}}
 
             {{-- <div class="aside-block">
               <h3 class="aside-title">Video</h3>
@@ -215,7 +223,7 @@
               </div>
             </div> --}}
             <!-- End Video -->
-
+{{-- 
             <div class="aside-block">
               <h3 class="aside-title">Categories</h3>
               <ul class="aside-links list-unstyled">
@@ -228,7 +236,8 @@
                 <li><a href="category.html"><i class="bi bi-chevron-right"></i> Startups</a></li>
                 <li><a href="category.html"><i class="bi bi-chevron-right"></i> Travel</a></li>
               </ul>
-            </div><!-- End Categories -->
+            </div> --}}
+            <!-- End Categories -->
 
             {{-- <div class="aside-block">
               <h3 class="aside-title">Tags</h3>

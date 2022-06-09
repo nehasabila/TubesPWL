@@ -16,13 +16,53 @@ class CommentsTableSeeder extends Seeder
     {
         Komentar::create([
             'id_post' => '2',
-            'id_user' => '2',
-            'isi_komentar' => 'dwunduwuh93r8dj82hd39hdjxoxmncu3ru8r8423',
+            'id_user' => '4',
+            'isi_komentar' => 'Good',
         ]);
         Komentar::create([
             'id_post' => '2',
-            'id_user' => '2',
+            'id_user' => '5',
             'isi_komentar' => 'blognya bagus.',
+        ]);
+        Komentar::create([
+            'id_post' => '1',
+            'id_user' => '4',
+            'isi_komentar' => 'Bagus.',
+        ]);
+        Komentar::create([
+            'id_post' => '1',
+            'id_user' => '5',
+            'isi_komentar' => 'sangat bermanfaat.',
+        ]);
+        Komentar::create([
+            'id_post' => '3',
+            'id_user' => '4',
+            'isi_komentar' => 'sangat menarik',
+        ]);
+        Komentar::create([
+            'id_post' => '3',
+            'id_user' => '5',
+            'isi_komentar' => 'bagus sekali',
+        ]);
+        Komentar::create([
+            'id_post' => '4',
+            'id_user' => '4',
+            'isi_komentar' => 'menarik',
+        ]);
+        Komentar::create([
+            'id_post' => '4',
+            'id_user' => '5',
+            'isi_komentar' => 'sangat bagus',
+        ]);
+        Komentar::create([
+            'id_post' => '5',
+            'id_user' => '5',
+            'isi_komentar' => 'sangat menarik',
+        ]);
+        Komentar::create([
+            'id_post' => '5',
+            'id_user' => '4',
+            'isi_komentar' => 'Good',
         ]);
     }
 }

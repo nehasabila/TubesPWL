@@ -7,7 +7,6 @@
 
   @yield('title')
 
-  <title>ZenBlog Bootstrap Template - Index</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -48,31 +47,24 @@
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="/assets/img/logo.png" alt=""> -->
-        <h1>ZenBlog</h1>
+        <h1>Blog</h1>
       </a>
 
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="/">Blog</a></li>
           {{-- <li><a href="single-post.html">Single Post</a></li> --}}
-          <li class="dropdown"><a href="category.html"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          {{-- <li class="dropdown"><a href="#"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="search-result.html">Search Result</a></li>
               <li><a href="#">Drop Down 1</a></li>
               <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
               </li>
               <li><a href="#">Drop Down 2</a></li>
               <li><a href="#">Drop Down 3</a></li>
               <li><a href="#">Drop Down 4</a></li>
             </ul>
-          </li>
+          </li> --}}
 
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
@@ -83,15 +75,30 @@
 
       <div class="position-relative">
 
-          <a href="/login"><button type="button" class="btn btn-dark">Login</button></a>
-          <a href="/register"><button type="button" class="btn btn-outline-dark">Register</button></a>
+        @if(auth()->user())
+        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+          <img src="https://cdn.pixabay.com/photo/2017/07/18/23/23/user-2517433__340.png" alt="Profile" class="rounded-circle" width="30px">
+          <span class="d-none text-dark d-md-block dropdown-toggle ps-2">{{auth()->user()->name}}</span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
 
-        <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
-        <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
-        <a href="#" class="mx-2"><span class="bi-instagram"></span></a>
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="/logout">
+              <i class="bi bi-box-arrow-right"></i>
+              <span>Sign Out</span>
+            </a>
+          </li>
+
+        </ul>
+        @else
+        <a href="/login"><button type="button" class="btn btn-dark">Login</button></a>
+          <a href="/register"><button type="button" class="btn btn-outline-dark">Register</button></a>
+       
+
+        @endif
 
         <a href="#" class="mx-2 js-search-open">
-          <span class="bi-search"></span>
+          {{-- <span class="bi-search"></span> --}}
         </a>
         <i class="bi bi-list mobile-nav-toggle"></i>
 
@@ -117,11 +124,11 @@
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
 
-    <div class="footer-content">
-      <div class="container">
+    {{-- <div class="footer-content">
+      <div class="container"> --}}
 
-        <div class="row g-5">
-          <div class="col-lg-4">
+        {{-- <div class="row g-5"> --}}
+          {{-- <div class="col-lg-4">
             <h3 class="footer-heading">About ZenBlog</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ab, perspiciatis beatae autem deleniti voluptate nulla a dolores, exercitationem eveniet libero laudantium recusandae officiis qui aliquid blanditiis omnis quae. Explicabo?</p>
             <p><a href="about.html" class="footer-link-more">Learn More</a></p>
@@ -150,9 +157,9 @@
               <li><a href="category.html"><i class="bi bi-chevron-right"></i> Travel</a></li>
 
             </ul>
-          </div>
+          </div> --}}
 
-          <div class="col-lg-4">
+          {{-- <div class="col-lg-4">
             <h3 class="footer-heading">Recent Posts</h3>
 
             <ul class="footer-links footer-blog-entry list-unstyled">
@@ -198,10 +205,10 @@
 
             </ul>
 
-          </div>
-        </div>
-      </div>
-    </div>
+          </div> --}}
+        {{-- </div> --}}
+      {{-- </div>
+    </div> --}}
 
     <div class="footer-legal">
       <div class="container">
@@ -209,7 +216,7 @@
         <div class="row justify-content-between">
           <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
             <div class="copyright">
-              © Copyright <strong><span>ZenBlog</span></strong>. All Rights Reserved
+              © Copyright <strong><span></span></strong>. All Rights Reserved
             </div>
 
             <div class="credits">
