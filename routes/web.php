@@ -58,8 +58,10 @@ Route::get('/user/update-kategori/{kategoriData}', [KategoriController::class, '
 Route::put('/user/update-kategori/{id}', [KategoriController::class, 'update']);
 Route::get('/user/destroy-kategori/{id}', [KategoriController::class, 'destroy']);
 
+//Dashboard
 Route::get('/user/dashboard', [DashboardController::class, 'index']);
 
+//Profile
 Route::get('/user/profile', function () {
     return view('user.profile');
 });

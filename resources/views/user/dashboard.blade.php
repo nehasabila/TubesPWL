@@ -51,8 +51,7 @@
             <!-- Customers Card -->
             <div class="col-xxl-4 col-md-6">
 
-              <div class="card info-card customers-card">
-
+              <div class="card info-card sales-card">
 
                 <div class="card-body">
                   <h5 class="card-title">Reader </h5>
