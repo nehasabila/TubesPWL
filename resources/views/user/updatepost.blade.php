@@ -3,7 +3,7 @@
 @section('content')
 
 @section('title')
-<title>Create Post</title>
+<title>Edit Post</title>
 @endsection
 
 <main id="main" class="main">
@@ -11,7 +11,7 @@
 <!-- START CREATE POST -->
 <div class="card">
     <div class="card-body">
-      <h5 class="card-title">Add Post</h5>
+      <h5 class="card-title">Update Post</h5>
 
       <!-- Vertical Form -->
       <form class="row g-3" action="/user/update-post/{{ $postData->id }}" method="POST" enctype="multipart/form-data">
