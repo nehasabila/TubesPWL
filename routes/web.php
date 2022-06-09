@@ -7,6 +7,8 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\DashboardController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -55,10 +57,9 @@ Route::post('/user/create-kategori', [KategoriController::class, 'store']);
 Route::get('/user/update-kategori/{kategoriData}', [KategoriController::class, 'updatekategori']);
 Route::put('/user/update-kategori/{id}', [KategoriController::class, 'update']);
 Route::get('/user/destroy-kategori/{id}', [KategoriController::class, 'destroy']);
-Route::get('/user/dashboard', function () {
-    return view('user.dashboard');
-});
- 
+
+Route::get('/user/dashboard', [DashboardController::class, 'index']);
+
 Route::get('/user/profile', function () {
     return view('user.profile');
 });
