@@ -42,7 +42,7 @@
             
                   <div class="col-lg-12">
                     <div class="row search-bar">
-                      <form class="search-form d-flex justify-content-center"  action="/user/post">
+                      <form class="search-form d-flex justify-content-center" >
                         <input type="text" name="search" placeholder="Search...." title="Enter search keyword" value="{{request('search')}}" >
                         <button type="submit" title="Search" class="mx-2"><i class="bi bi-search"></i></button>
                       </form>

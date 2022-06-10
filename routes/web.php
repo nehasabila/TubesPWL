@@ -20,14 +20,15 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
+Route::middleware('guest')->group(function(){
  // LOGIN
-Route::get('/login', [LoginController::class, 'index'])->name('index');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
     
 // REGISTER
-Route::get('/register', [RegisterController::class, 'index'])->name('index');
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
-
+});
 // LOGOUT
 Route::get('/logout', [LoginController::class, 'logout']);
 
@@ -44,7 +45,9 @@ Route::post('/user/create-post', [PostController::class, 'store']);
 Route::put('/user/update-post/{id}', [PostController::class, 'update']);
 Route::get('/user/destroy-post/{id}', [PostController::class, 'destroy']);
 
-//COMMENT
+
+Route::middleware('auth')->group(function(){
+    //COMMENT
 Route::get('/user/comment', [CommentController::class, 'index']);
 Route::get('/comment/{id}', [CommentController::class, 'showcomment']);
 Route::post('/comment/create-comment', [CommentController::class, 'create']);
@@ -58,12 +61,17 @@ Route::get('/user/update-kategori/{kategoriData}', [KategoriController::class, '
 Route::put('/user/update-kategori/{id}', [KategoriController::class, 'update']);
 Route::get('/user/destroy-kategori/{id}', [KategoriController::class, 'destroy']);
 
-//Dashboard
-Route::get('/user/dashboard', [DashboardController::class, 'index']);
-
-//Profile
-Route::get('/user/profile', function () {
-    return view('user.profile');
 });
 
+//Dashboard
+Route::get('/user/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+//Profile
+// Route::get('/user/profile', function () {
+//     return view('user.profile');
+// });
+
+// Route::get('/user/dashboard', function () {
+//     return view('user.dashboard');
+// })->name('dashboard');
 

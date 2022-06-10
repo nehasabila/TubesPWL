@@ -17,14 +17,37 @@ class PostController extends Controller
      */
 
      //read postingan di halaman blog
+    // public function index()
+    // {
+
+    //     $id = auth()->user()->id;
+    //     $post = Post::join('kategoris','posts.id_kategori','=','kategoris.id')->join('users','posts.id_user','=','users.id')->select('users.id','posts.id','posts.id_user','posts.judul','posts.slug','posts.deskripsi','posts.tgl_post','kategoris.kategori','users.name')->where('posts.id_user', $id);//->get();
+
+    //     return view('user.post', [
+    //         'post' => $post->filter(request(['search']))->paginate(3)//paginationnya
+    //     ]);
+    //     //
+    // }
+
     public function index()
     {
 
         $id = auth()->user()->id;
-        $post = Post::join('kategoris','posts.id_kategori','=','kategoris.id')->join('users','posts.id_user','=','users.id')->select('users.id','posts.id','posts.id_user','posts.judul','posts.slug','posts.deskripsi','posts.tgl_post','kategoris.kategori','users.name')->where('posts.id_user', $id);//->get();
+        if (auth()->user()->status === 'penulis') {
+            $post = Post::query()
+                ->join('kategoris', 'posts.id_kategori', '=', 'kategoris.id')
+                ->join('users', 'posts.id_user', '=', 'users.id')
+                ->select('users.id', 'posts.id', 'posts.id_user', 'posts.judul', 'posts.slug', 'posts.deskripsi', 'posts.tgl_post', 'kategoris.kategori', 'users.name')
+                ->where('posts.id_user', $id); //->get();
+        } else {
+            $post = Post::query()
+                ->join('kategoris', 'posts.id_kategori', '=', 'kategoris.id')
+                ->join('users', 'posts.id_user', '=', 'users.id')
+                ->select('users.id', 'posts.id', 'posts.id_user', 'posts.judul', 'posts.slug', 'posts.deskripsi', 'posts.tgl_post', 'kategoris.kategori', 'users.name');
+        }
 
         return view('user.post', [
-            'post' => $post->filter(request(['search']))->paginate(3)//paginationnya
+            'post' => $post->filter(request(['search']))->paginate(3) //paginationnya
         ]);
         //
     }
